@@ -1,0 +1,28 @@
+# RuleProvider Configuration
+# Maps a detected language to the Semgrep --config value passed at runtime.
+#
+# To switch from community rules to custom rules for a language, simply update
+# the path below — no code changes required.
+#
+# Community rule packs:  https://semgrep.dev/r
+# Custom rules example:  python: "/app/rules/custom/python.yaml"
+#                        java:   "/app/rules/custom/java.yaml"
+
+default: "auto"
+
+languages:
+  python: "p/python"
+  javascript: "p/javascript"
+  typescript: "p/typescript"
+  java: "p/java"
+  go: "p/golang"
+  rust: "p/rust"
+  cpp: "p/cpp"
+  c: "p/c"
+  csharp: "p/csharp"
+  ruby: "p/ruby"
+  php: "p/php"
+  kotlin: "p/kotlin"
+  swift: "p/swift"
+  scala: "p/scala"
+  sql: "p/sql"

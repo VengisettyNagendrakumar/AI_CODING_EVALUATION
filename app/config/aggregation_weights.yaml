@@ -1,0 +1,16 @@
+# Module C — Final Evaluation Score Aggregation Weights & Caps
+# Applied to static_score (Module A), llm_score (Module B), and runtime score
+# (from passed/total test cases) to produce the final overall score.
+# Weights must sum to 1.0.
+
+weights:
+  static_analysis: 0.20
+  llm_evaluation: 0.40
+  runtime_execution: 0.40
+
+# Capping rules applied to avoid counter-intuitive scoring outcomes.
+# If a trigger condition is met, the final score will be capped at the specified maximum.
+caps:
+  syntax_failure_cap: 20
+  compilation_failure_cap: 20
+  zero_tests_passed_cap: 20

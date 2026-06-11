@@ -1,0 +1,36 @@
+# AI Coding Evaluation System — Python dependencies
+
+# Web framework
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+
+# Data validation
+pydantic>=2.0.0
+
+# Tree-sitter 0.22+ (new API — each language is its own package)
+tree-sitter>=0.22.0
+tree-sitter-python
+tree-sitter-javascript
+tree-sitter-typescript
+tree-sitter-java
+tree-sitter-go
+tree-sitter-rust
+tree-sitter-cpp
+tree-sitter-c
+tree-sitter-sql
+
+# YAML config loading
+pyyaml>=6.0.1
+
+# Static analysis
+semgrep>=1.70.0
+
+# Async Task Queue
+celery[redis]>=5.3.0
+redis>=5.0.0
+
+# LLM client (Module B — Ollama HTTP calls via qwen_client.py)
+httpx>=0.27.0
+
+# Kombu (Celery queue definitions)
+kombu>=5.3.0

@@ -1,0 +1,17 @@
+# LLM Evaluation Scoring Weights
+# Weights applied to each LLM dimension score (0-100) to produce llm_score.
+# Must sum to 1.0.
+#
+# Rationale:
+#   Correctness dominates — a correct but ugly solution scores higher
+#   than a beautiful but incorrect one.
+#
+# Update this file when the team revises the rubric.
+# Bump prompt_builder.py PROMPT_VERSION to "v2" alongside any weight change.
+
+weights:
+  correctness:         0.40
+  logic:               0.20
+  optimization:        0.15
+  edge_case_handling:  0.15
+  readability:         0.10

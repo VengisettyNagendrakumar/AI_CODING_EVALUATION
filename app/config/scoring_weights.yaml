@@ -1,0 +1,17 @@
+
+
+
+# Scoring Weights
+# Must sum to 1.0 — validated at runtime in scorer.py.
+# Adjust after testing on real candidate data.
+#
+# maintainability covers 4 AST metrics (average):
+#   cyclomatic_complexity, nesting_depth, function_length, parameter_count
+#
+# All other dimensions map 1-to-1 from a single Semgrep metric.
+
+maintainability: 0.25
+security: 0.25
+complexity: 0.20
+reliability: 0.15
+best_practices: 0.15

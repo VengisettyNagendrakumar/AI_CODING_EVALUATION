@@ -1,0 +1,45 @@
+# Virtual environments
+venv/
+env/
+.env/
+myenv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# IDE & Editor folders
+.vscode/
+.idea/
+
+# Redis binaries and archives
+.redis/
+redis.zip
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+# Redis runtime files — never commit these
+dump.rdb
+*.rdb
+
+# Redis download script output
+download_redis.py
+
+# Windows Redis binaries — use Docker/system Redis instead
+redis/
+
+# Python environment
+myenv/
+__pycache__/
+*.pyc
+.env
+
+tests/
+
+requirements-dev.txt
