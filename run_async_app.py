@@ -1,5 +1,6 @@
 """
-
+run_async_app.py
+----------------
 Starts Celery and Uvicorn in a single command for local development.
 
 Redis is expected to be running externally (Docker, system install, or
@@ -94,18 +95,16 @@ def main() -> None:
         creationflags=cflags,
     )
 
-    # Celery Worker — Module B (llm_evaluation queue)
-    # I/O-bound: Ollama HTTP calls — solo pool is fine on Windows
-    # Each inference call blocks for 10-180s, so concurrency=1 is correct
-    # for solo; on Linux swap to gevent for true I/O concurrency.
-    print(f"Starting Celery Worker — llm_evaluation (pool={pool}, concurrency=1)...")
+   
+    llm_pool = "solo" if sys.platform == "win32" else "gevent"
+    print(f"Starting Celery Worker — llm_evaluation (pool={llm_pool}, concurrency=1)...")
     llm_celery_proc = subprocess.Popen(
         [
             sys.executable, "-m", "celery",
             "-A", "app.worker.celery_app",
             "worker",
             "--loglevel=info",
-            f"--pool={pool}",
+            f"--pool={llm_pool}",
             "--concurrency=1",
             "--queues=llm_evaluation",
             "--hostname=worker-llm@%h",

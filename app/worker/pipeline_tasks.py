@@ -1,5 +1,4 @@
 """
-
 Celery task for coordinating the score aggregation and pipeline evaluation report.
 """
 
@@ -132,7 +131,8 @@ def aggregate_and_report_task(
         return {"status": "failed", "error": err}
 
     # 3. Check for sub-task failures
-    static_failed = static_result.get("analysis_status") == "failed"
+    static_failed = static_result.get("analysis_status") in ("failed",)
+    static_degraded = static_result.get("analysis_status") == "degraded"
     llm_failed = llm_result.get("status") == "failed"
 
     # Compute runtime score

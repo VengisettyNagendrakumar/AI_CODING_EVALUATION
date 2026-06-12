@@ -1,13 +1,5 @@
 """
-
 GET /analyze/{job_id} — Polling endpoint for Module A.
-
-Fix 1: File was previously corrupted (main.py source appended as raw text).
-Fix 2: Handler changed from sync `def` to `async def` — the AsyncResult call
-       makes a network round trip to Redis; running it in a sync handler blocks
-       a threadpool slot per poll. Under high polling load (thousands of students
-       refreshing simultaneously) this exhausts the pool. Async def lets the
-       event loop handle it non-blockingly.
 """
 
 import logging
@@ -45,6 +37,8 @@ async def get_result(job_id: str) -> JobStatusResponse:
             language=res.get("language"),
             metrics=res.get("metrics"),
             scores=res.get("scores"),
+            semgrep_available=res.get("semgrep_available", True),
+            semgrep_failure_reason=res.get("semgrep_failure_reason"),
             error=res.get("error"),
         )
 
